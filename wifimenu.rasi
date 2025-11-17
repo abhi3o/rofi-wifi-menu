@@ -1,0 +1,59 @@
+/**
+ * ROFI theme for powermenu
+ * Author: Abhishek Bhagwat
+ */
+
+configuration {
+  disable-history: true;
+  cycle: true;
+  font: "Dina TTF 9.5";
+  timeout {
+    delay: 7;
+    action: "kb-cancel";
+  }
+}
+@theme "/dev/null"
+@import "~/.config/rofi/colors.rasi"
+
+* {
+  background-color: @active-bg;
+  text-color: @foreground;
+}
+#window {
+  location: north east;
+  x-offset: -5px;
+  y-offset: 35px;
+  background-color: @background;
+  children: [ mainbox ];
+}
+#mainbox {
+  orientation: vertical;
+  padding: 2px;
+  children: [ inputbar, listview ];
+}
+#inputbar {
+  padding: 7px 5px 5px;
+  children: [ prompt, textbox-prompt-colon, entry ];
+}
+#prompt {
+  enabled: true;
+}
+#textbox-prompt-colon {
+  expand: false;
+  str: ":";
+}
+#entry {
+  enabled: true;
+}
+#listview {
+  layout: vertical;
+  border: 2px 0px 0px;
+  border-color: @fruitsalad;
+  padding: 2px 0px 0px;
+}
+#element-text {
+  padding: 5px 3px 4px;
+}
+#element-text selected {
+  background-color: @selected;
+}
